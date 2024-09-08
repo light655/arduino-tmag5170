@@ -25,7 +25,7 @@ This example sends some commands to read the magnetic field at an interval of 1 
 ```C
 TMAG5170 myTMAG;
 ```
-In the setup() function, we can set some parameters on the TMA5170.
+In the setup() function, we can set some parameters on the TMAG5170.
 ```C
 void setup() {
   Serial.begin(115200);
