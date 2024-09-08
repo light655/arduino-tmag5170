@@ -21,7 +21,19 @@ If you are using Raspberry Pi Pico, please consider using the [Pico SDK version 
 
 ### Single measurement
 
-This example sends some commands to read the magnetic field at an interval of 1 second. First, a TMAG5170 object is created.
+This example sends some commands to read the magnetic field at an interval of 1 second. Please wire the TMAG5170 as follows:
+
+| TMAG5170 | Arduino Uno |
+| -- | -- |
+| SCK (1) | D13 |
+| SDI (2) | D11 |
+| SDO (3) | D12 |
+| CS (4) | D10 |
+| VCC (5) | 5V |
+| GND (6) | GND |
+| TEST (7) | GND |
+
+First, a TMAG5170 object is created.
 ```C
 TMAG5170 myTMAG;
 ```
@@ -36,8 +48,9 @@ void setup() {
   myTMAG.setConversionAverage(CONV_AVG_32x);
     // take the average of 32 measurements
   myTMAG.enableMagneticChannel(true, true, true);
+    // Enables all magnetic channels. The 3 true/false parameters refers to x, y, z axes, respectively.
   myTMAG.setMagneticRange(X_RANGE_300mT, Y_RANGE_300mT, Z_RANGE_300mT);
-    // enables all magnetic channels with maximum measuring range
+    // Sets all magnetic channels to maximum range.
 }
 ```
 In the loop() function, call readX/Y/Z() to read the magnetic field on the respective axis. Note that by setting the parameter true will initiate the next measure of magnetic field.
