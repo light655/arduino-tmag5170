@@ -1,0 +1,23 @@
+TMAG5170 KEYWORD1
+attachSPI KEYWORD2
+
+generateCRC KEYWORD2
+checkCRC KEYWORD2
+exchangeFrame KEYWORD2
+readRegister KEYWORD2
+writeRegister KEYWORD2
+
+init KEYWORD2
+setOperatingMode KEYWORD2
+setConversionAverage KEYWORD2
+enableAngleCalculation KEYWORD2
+enableMagneticChannel KEYWORD2
+setMagneticRange KEYWORD2
+enableAlertOutput KEYWORD2
+
+readXRaw KEYWORD2
+readYRaw KEYWORD2
+readZRaw KEYWORD2
+readX KEYWORD2
+readY KEYWORD2
+readZ KEYWORD2
