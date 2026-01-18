@@ -13,6 +13,7 @@ If you are using Raspberry Pi Pico, please consider using the [Pico SDK version 
 ```C
 #include "TMAG5170.h"
 ```
+- For more infomation, see the [documentation](https://light655.github.io/docs/).
 
 ## Notes
 - This library is only tested on the Arduino Uno and uses the default SPI pins.
@@ -73,4 +74,4 @@ void loop() {
 
 ## References
 - [TMAG5170 datasheet](https://www.ti.com/lit/ds/symlink/tmag5170.pdf?ts=1724587283732&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FTMAG5170)
-- [My blog on more details about the TMAG5170](https://hackmd.io/8zu9jVyARfWYGYuD4Jl_aQ)
+- [My blog on more details about the TMAG5170](https://light655.github.io/Blog/TMAG5170.html)
