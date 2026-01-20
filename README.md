@@ -11,7 +11,7 @@ If you are using Raspberry Pi Pico, please consider using the [Pico SDK version 
 - Download this repository and extract it into your *Arduino/libraries* folder.
 - Remember to include the header file in your code.
 ```C
-#include "TMAG5170.h"
+#include "TMAG5170.hpp"
 ```
 - For more infomation, see the [documentation](https://light655.github.io/docs/).
 
