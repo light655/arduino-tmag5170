@@ -21,19 +21,19 @@ void TMAG5170::attachSPI(int spi_cs_pin, int buadrate) {
 
 // Generates CRC for SPI communication. The input data should contain no 1 in the last 4 bits.
 uint32_t TMAG5170::generateCRC(uint32_t data) {
-  uint32_t CRC = 0xf;  // least significant 4 bits are the shift register
+  uint32_t CRC_calc = 0xf;  // least significant 4 bits are the shift register
 
   for (int i = 0; i < 32; i++) {
-    uint32_t inv = ((data & 0x80000000) >> 31) ^ ((CRC & 0x8) >> 3);
+    uint32_t inv = ((data & 0x80000000) >> 31) ^ ((CRC_calc & 0x8) >> 3);
     // XOR MSB of data and shift register
     uint32_t poly = (inv << 1) | inv;
     // polynomial = x^4 + x + 1
-    uint32_t XORed = (CRC << 1) ^ poly;
-    CRC = XORed & 0xf;
+    uint32_t XORed = (CRC_calc << 1) ^ poly;
+    CRC_calc = XORed & 0xf;
     data <<= 1;
   }
 
-  return CRC;
+  return CRC_calc;
 }
 
 // Checks the CRC of the received frame.
@@ -110,8 +110,8 @@ TMAG5170_version TMAG5170::init(void) {
   AFE16 = readRegister(AFE_STATUS);
   AFE16 = readRegister(AFE_STATUS);
   if (AFE16 & 0x8000) {
-    version = ERROR;
-    return ERROR;
+    version = ERRORv;
+    return ERRORv;
   }
 
   uint16_t TEST16;
@@ -127,7 +127,7 @@ TMAG5170_version TMAG5170::init(void) {
     magnetic_coeff[1] = 150.0f / 32768.0f;
     magnetic_coeff[2] = 150.0f / 32768.0f;
   } else {
-    version = ERROR;
+    version = ERRORv;
     magnetic_coeff[0] = 0.0f;
     magnetic_coeff[1] = 0.0f;
     magnetic_coeff[2] = 0.0f;

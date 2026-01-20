@@ -285,7 +285,7 @@
 enum TMAG5170_version {
   A1v = 0x0,
   A2v = 0x1,
-  ERROR = 0x3
+  ERRORv = 0x3
 };
 
 class TMAG5170 {
