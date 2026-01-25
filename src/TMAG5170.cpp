@@ -8,7 +8,7 @@ TMAG5170::TMAG5170(void) {
 }
 
 // Attach and initialise SPI on Pico for TMAG5170
-void TMAG5170::attachSPI(int spi_cs_pin, int buadrate) {
+void TMAG5170::attachSPI(int spi_cs_pin, int32_t buadrate) {
   SPI.beginTransaction(SPISettings(buadrate, MSBFIRST, SPI_MODE0));
   SPI.begin();
 

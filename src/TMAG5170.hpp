@@ -316,7 +316,7 @@ private:
 
 public:
   TMAG5170(void);
-  void attachSPI(int spi_cs_pin, int buadrate);
+  void attachSPI(int spi_cs_pin, int32_t buadrate);
 
   uint32_t generateCRC(uint32_t data);
   int checkCRC(uint32_t received_frame);
